@@ -4,7 +4,8 @@ getAuth,// authentication 설정
 signInWithPopup, //google 로그인을 팝업창에 띄우기 위해
 GoogleAuthProvider, //google login 기능
 signInWithEmailAndPassword,// email 로그인
-createUserWithEmailAndPassword //email 회원가입
+createUserWithEmailAndPassword, //email 회원가입
+setPersistence // 계정 지속성
 } from "firebase/auth";
 
 const firebaseConfig = {
@@ -20,7 +21,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 
 // auth 설정 필수!!
-const auth = getAuth();
+export const auth = getAuth();
 
 //Email 로그인
 export const signupEmail = (email, password) => {

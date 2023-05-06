@@ -1,7 +1,7 @@
 import { loginEmail } from "../firebase";
 import { useState } from "react";
 
-function LogIn() {
+function LogIn(props) {
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -14,6 +14,8 @@ function LogIn() {
             await loginEmail(email, password).then((result)=> {
                 console.log(result);
                 console.log('success');
+                const user = result.user;
+                props.setLoggedIn(true);
             });
         } catch (error) {
             setError(error.message);
